@@ -1,0 +1,36 @@
+---
+title: "Leaflet Assignment"
+author: "Peter Becker"
+date: "11 January 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Very simple bare minimum demonstration of a leaflet interactive map, not making much of the leaflet feature set at all.
+
+## South Africa - 11 January 2017
+
+```{r cars, echo = FALSE, message=FALSE}
+
+library(leaflet)
+
+coords <- data.frame(
+                city = c('Durban', 'Johannesburg', 'Cape Town'),
+                lat = c(-29.8587, -26.2041, -33.9249),
+                lng = c(31.0218, 28.0473, 18.4241))
+links <- c('<a href="http://www.durbanexperience.co.za/">Durban</a>',
+           '<a href="http://www.joburgtourism.com/">Johannesburg</a>', 
+           '<a href="http://www.capetown.travel/">Cape Town</a>')
+
+map <- coords %>%
+        leaflet() %>%
+        addTiles() %>%
+        addMarkers(popup=links)
+
+map
+```
+
+
